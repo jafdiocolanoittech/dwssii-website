@@ -348,8 +348,11 @@ export default function About() {
               viewport={{ once: true }}
             >
               <h2>Our Mission</h2>
-              <p>To provide quality Catholic education rooted in the Divinian charism, forming competent, 
-              virtuous, and mission-oriented individuals committed to serving God, Church, and community.</p>
+              <p>DWSSII commits itself to priovide the pupils/students a Christian lieral education with technical
+                and professional competence, development and enhancement of the spiritual rooted on the gospel values, 
+                intellectual, moral and physical capabilities of it's members in the academic community through the generosity
+                and support of Semirara Mining and Power Corporation in promoting quality and relevant education and 
+                raising the level of environmental awareness.</p>
             </motion.div>
 
             <motion.div 
@@ -359,8 +362,9 @@ export default function About() {
               viewport={{ once: true }}
             >
               <h2>Our Vision</h2>
-              <p>A premier Divinian educational institution in the Island of Semirara, forming Christ-centered 
-              leaders equipped with excellence, integrity, and servant leadership for a changing world.</p>
+              <p>DIVINE WORD SCHOOL OF SEMIRARA ISLAND, INC. envisions an Academic Christian Community, working together
+                towards the total development of it's members and Witnessing to the Word in the world under the patronage
+                of Saint Arnold Janssen and the guidance of the Holy Spirit.</p>
             </motion.div>
           </div>
         </div>

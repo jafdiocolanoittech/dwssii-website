@@ -35,7 +35,7 @@ export default function Navbar() {
               alt="DWSSII Official Logo" 
               className="brand-logo" 
             />
-            <span className="brand-text">DWSSII</span>
+            <span className="brand-text">DIVINE WORD SCHOOL OF SEMIRARA ISLAND INC.</span>
           </Link>
         </motion.div>
 
