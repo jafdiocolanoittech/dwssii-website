@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import arnoldJanssen from '../assets/images/Arnold_Janssen.jpg';
+import schoolDirector from '../assets/images/school-director.jpg';
 
 export default function About() {
   return (
@@ -420,11 +421,13 @@ export default function About() {
           >
             <h2>School Director</h2>
             <div className="director-info">
-              <div className="director-photo">
-                <div className="director-placeholder">
-                  <span>FR</span>
+             <div className="director-photo">
+                <img 
+                    src={schoolDirector} 
+                    alt="Fr. Rico Glenn Deuna, SVD - School Director" 
+                    className="director-image" 
+                />
                 </div>
-              </div>
               <div className="director-details">
                 <h3>Fr. Rico Glenn Deuna, SVD</h3>
                 <p className="director-title">School Director</p>

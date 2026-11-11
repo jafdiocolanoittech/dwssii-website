@@ -1336,14 +1336,21 @@ p {
   background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
   padding: 5px;
   box-shadow: var(--shadow-md);
-  overflow: hidden;
+  overflow: hidden; /* Keeps image inside the circle */
 }
 
-.director-photo img {
+.director-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Fills circle without distortion */
+  object-position: center top; /* Focuses on face */
   border-radius: 50%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.director-photo:hover .director-image {
+  transform: scale(1.05);
 }
 
 .director-placeholder {
