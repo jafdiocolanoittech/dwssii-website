@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import dwssiiLogo from '../assets/images/dwssii-logo2.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,14 +21,22 @@ export default function Navbar() {
       className="navbar"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.5 }}
     >
       <div className="nav-container">
+        {/* ✨ Logo FIRST, then DWSSII text */}
         <motion.div 
           className="nav-logo"
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.04 }}
         >
-          <Link to="/">DWSSII</Link>
+          <Link to="/" className="brand-link">
+            <img 
+              src={dwssiiLogo} 
+              alt="DWSSII Official Logo" 
+              className="brand-logo" 
+            />
+            <span className="brand-text">DWSSII</span>
+          </Link>
         </motion.div>
 
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>

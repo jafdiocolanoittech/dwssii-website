@@ -21,7 +21,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
         >
           <h1>Divine Word School of Semirara Island Inc.</h1>
-          <p className="tagline">Excellence with Values</p>
+          <p className="tagline">Witness to the Word</p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link to="/about" className="btn">Learn More</Link>
           </motion.div>
