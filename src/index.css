@@ -127,7 +127,7 @@ p { margin-bottom: 1.25rem; }
   color: var(--white);
 }
 
-/* ===== NAVBAR (Fixed Alignment) ===== */
+/* ===== NAVBAR (Fixed Alignment & Z-Index) ===== */
 .navbar {
   position: fixed;
   top: 0;
@@ -235,23 +235,31 @@ p { margin-bottom: 1.25rem; }
   width: 100%;
 }
 
+/* Hamburger Button (Fixed for Mobile) */
 .hamburger {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   align-items: center;
   justify-content: center;
-  background: transparent;
+  background: var(--white);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
   cursor: pointer;
+  z-index: 1001; /* Ensures it stays clickable above everything */
+  flex-shrink: 0;
+}
+
+.hamburger:hover {
+  background: var(--bg-neutral);
 }
 
 .bar {
-  width: 20px;
+  width: 22px;
   height: 2px;
   margin: 3px 0;
   background: var(--text-dark);
+  border-radius: 2px;
   transition: var(--transition);
 }
 
@@ -732,7 +740,6 @@ p { margin-bottom: 1.25rem; }
 
 .post-media.multi img { height: 250px; }
 
-/* ===== DIRECTOR SECTION (Now First on About) ===== */
 /* ===== DIRECTOR SECTION (Enlarged & Prominent) ===== */
 .director-section {
   padding: 100px 0;
@@ -760,10 +767,10 @@ p { margin-bottom: 1.25rem; }
 }
 
 .director-card {
-  max-width: 1000px; /* Slightly wider container */
+  max-width: 1000px;
   margin: 0 auto;
   background: var(--white);
-  padding: 56px; /* More breathing room */
+  padding: 56px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-light);
   border-top: 4px solid var(--primary-green);
@@ -773,20 +780,20 @@ p { margin-bottom: 1.25rem; }
 
 .director-info {
   display: grid;
-  grid-template-columns: 260px 1fr; /* Increased from 180px to 260px */
-  gap: 56px; /* Increased gap for better balance */
+  grid-template-columns: 260px 1fr;
+  gap: 56px;
   align-items: center;
   text-align: left;
 }
 
 .director-photo {
-  width: 260px; /* Increased from 180px */
-  height: 260px; /* Increased from 180px */
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   background: var(--white);
-  padding: 6px; /* Thicker elegant border */
+  padding: 6px;
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-elevated); /* Added subtle shadow to make it pop */
+  box-shadow: var(--shadow-elevated);
   overflow: hidden;
   margin: 0 auto;
 }
@@ -807,7 +814,7 @@ p { margin-bottom: 1.25rem; }
 
 .director-details h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.75rem; /* Slightly larger name */
+  font-size: 1.75rem;
   margin-bottom: 8px;
   color: var(--text-dark);
 }
@@ -833,21 +840,6 @@ p { margin-bottom: 1.25rem; }
 
 .director-details p:last-child {
   margin-bottom: 0;
-}
-
-/* Update Responsive for Director */
-@media (max-width: 900px) {
-  .director-info { 
-    grid-template-columns: 1fr; 
-    text-align: center; 
-    gap: 32px;
-  }
-  .director-photo { 
-    margin: 0 auto 24px; 
-    width: 220px; /* Still big on mobile/tablet */
-    height: 220px; 
-  }
-  .director-card { padding: 40px 32px; }
 }
 
 /* Founder Section */
@@ -1290,26 +1282,50 @@ p { margin-bottom: 1.25rem; }
   .nav-logo-title { font-size: 0.95rem; }
   .nav-logo-subtitle { font-size: 0.6rem; }
   
-  .hamburger { display: flex; }
+  /* FIXED HAMBURGER BUTTON */
+  .hamburger { 
+    display: flex; 
+    z-index: 1001;
+  }
+  .hamburger:hover {
+    background: var(--bg-neutral);
+  }
+
+  /* FIXED MOBILE MENU */
   .nav-menu {
     position: fixed;
     top: var(--navbar-height);
     left: 0;
     width: 100%;
-    padding: 24px;
+    max-height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    padding: 24px 20px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch; /* Full width links for easier tapping */
     gap: 0;
     background: var(--white);
-    border-bottom: 1px solid var(--border-light);
+    border-top: 1px solid var(--border-light);
     box-shadow: var(--shadow-elevated);
     transform: translateY(-10px);
     opacity: 0;
     pointer-events: none;
-    transition: all var(--transition);
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
   }
-  .nav-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
-  .nav-link { width: 100%; padding: 16px 0; border-bottom: 1px solid var(--border-light); }
+  .nav-menu.active { 
+    transform: translateY(0); 
+    opacity: 1; 
+    pointer-events: auto; 
+  }
+  .nav-link { 
+    width: 100%; 
+    padding: 16px 0; 
+    border-bottom: 1px solid var(--border-light); 
+    text-align: center; /* Centered text for better mobile UX */
+  }
+  .nav-link:last-child {
+    border-bottom: none;
+  }
   .nav-link::after { display: none; }
   
   .hero { min-height: 70vh; text-align: center; }
