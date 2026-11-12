@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import schoolFront from '../assets/images/school-front.png';
+import EnrollmentStats from '../components/EnrollmentStats'; // <-- NEW IMPORT
 
 export default function Home() {
   return (
@@ -50,6 +51,10 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* <-- NEW SECTION ADDED HERE --> */}
+      <EnrollmentStats />
+      
     </>
   );
 }

@@ -171,7 +171,6 @@ p {
   padding: 0 40px 0 16px;
 }
 
-/* Logo locked to the LEFT */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -195,7 +194,6 @@ p {
   color: var(--primary-green);
 }
 
-/* Big, readable circular logo — fits the navbar */
 .brand-logo {
   height: 100px;
   width: 100px;
@@ -205,7 +203,6 @@ p {
   flex-shrink: 0;
 }
 
-/* Nav Menu on the RIGHT */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -455,7 +452,6 @@ p {
   line-height: 1.7;
 }
 
-/* CHIMES Letter Badge */
 .value-letter {
   width: 60px;
   height: 60px;
@@ -955,7 +951,6 @@ p {
   background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
 }
 
-/* ✨ Centers the "Our Founder" label above the title */
 .founder-section .section-label {
   display: block;
   width: fit-content;
@@ -1002,7 +997,6 @@ p {
   overflow: hidden;
 }
 
-/* ✨ St. Arnold Janssen Photo */
 .portrait-image {
   width: 100%;
   height: 100%;
@@ -1012,7 +1006,6 @@ p {
   display: block;
 }
 
-/* Fallback placeholder (if no photo) */
 .portrait-placeholder {
   width: 100%;
   height: 100%;
@@ -1336,14 +1329,14 @@ p {
   background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
   padding: 5px;
   box-shadow: var(--shadow-md);
-  overflow: hidden; /* Keeps image inside the circle */
+  overflow: hidden;
 }
 
 .director-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Fills circle without distortion */
-  object-position: center top; /* Focuses on face */
+  object-fit: cover;
+  object-position: center top;
   border-radius: 50%;
   display: block;
   transition: transform 0.5s ease;
@@ -1385,37 +1378,243 @@ p {
 }
 
 /* =========================
-   Footer (Deep & Professional)
+   Corporate Enrollment & Stats Section
+========================= */
+.corp-enrollment-section {
+  padding: 120px 0;
+  background: #ffffff;
+  border-top: 1px solid var(--border-light);
+}
+
+.corp-section-block {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.corp-section-block + .corp-section-block {
+  margin-top: 120px;
+  padding-top: 80px;
+  border-top: 1px solid var(--border-light);
+}
+
+.corp-section-header {
+  margin-bottom: 56px;
+  max-width: 700px;
+}
+
+.corp-section-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary-green);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary-green);
+}
+
+.corp-section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.corp-section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.corp-table-wrapper {
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.corp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.corp-table thead {
+  background: var(--text-dark);
+  color: var(--white);
+}
+
+.corp-table th {
+  padding: 16px 24px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.corp-table th.text-right {
+  text-align: right;
+}
+
+.corp-table tbody tr {
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.2s ease;
+}
+
+.corp-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.corp-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.corp-table td {
+  padding: 18px 24px;
+  color: var(--text-body);
+  font-weight: 400;
+}
+
+.corp-table td.text-right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.corp-table tfoot {
+  background: #fafafa;
+  border-top: 2px solid var(--text-dark);
+}
+
+.corp-table-total td {
+  padding: 20px 24px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+.corp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.corp-stat-card {
+  padding: 40px 32px;
+  border-right: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  transition: background 0.3s ease;
+  background: var(--white);
+}
+
+.corp-stat-card:nth-child(3n) {
+  border-right: none;
+}
+
+.corp-stat-card:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.corp-stat-card:hover {
+  background: #fafafa;
+}
+
+.corp-stat-card:hover .corp-stat-icon {
+  color: var(--primary-green);
+}
+
+.corp-stat-number {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #9ca3af;
+  font-variant-numeric: tabular-nums;
+}
+
+.corp-stat-icon {
+  color: #6b7280;
+  margin-bottom: 24px;
+  transition: color 0.3s ease;
+  display: inline-flex;
+}
+
+.corp-stat-value {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+  margin-bottom: 12px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.corp-stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+.corp-stat-description {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =========================
+   Footer (Compact & Professional)
 ========================= */
 .footer {
-  padding: 80px 0 32px;
+  padding: 40px 0 20px;
   background: var(--primary-green-dark);
   color: var(--white);
+  font-size: 0.875rem;
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr 1.2fr;
-  gap: 48px;
-  margin-bottom: 60px;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 32px;
+  margin-bottom: 24px;
 }
 
 .footer-logo h3 {
   color: var(--white);
-  font-size: 1.8rem;
-  margin-bottom: 12px;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
-.footer-logo p, .footer-contact p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
+.footer-logo p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+  margin-bottom: 0;
+  line-height: 1.5;
 }
 
 .footer-links h4, .footer-contact h4 {
   color: var(--white);
-  margin-bottom: 20px;
-  font-size: 1.1rem;
-  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 .footer-links ul {
@@ -1423,29 +1622,46 @@ p {
 }
 
 .footer-links li {
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
   transition: all var(--transition);
 }
 
 .footer-links a:hover {
   color: var(--divinian-orange);
-  padding-left: 6px;
+  padding-left: 4px;
+}
+
+.footer-contact p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.footer-contact a {
+  color: rgba(255, 255, 255, 0.75);
+  transition: color var(--transition);
+}
+
+.footer-contact a:hover {
+  color: var(--divinian-orange);
 }
 
 .footer-bottom {
-  padding-top: 32px;
+  padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   text-align: center;
 }
 
 .footer-bottom p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  margin: 0;
 }
 
 /* =========================================================
@@ -1468,7 +1684,7 @@ p {
   .program-details { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .mission-vision { grid-template-columns: 1fr; }
-  .footer-content { grid-template-columns: 1fr; gap: 40px; }
+  .footer-content { grid-template-columns: 1fr; gap: 24px; margin-bottom: 20px; }
 
   .founder-layout { grid-template-columns: 1fr; gap: 40px; }
   .founder-portrait { position: static; }
@@ -1476,6 +1692,17 @@ p {
 
   .director-info { grid-template-columns: 1fr; text-align: center; }
   .director-photo { margin: 0 auto; }
+
+  .corp-enrollment-section { padding: 80px 0; }
+  .corp-section-block + .corp-section-block {
+    margin-top: 80px;
+    padding-top: 60px;
+  }
+  .corp-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .corp-stat-card:nth-child(3n) { border-right: 1px solid var(--border-light); }
+  .corp-stat-card:nth-child(2n) { border-right: none; }
+  .corp-stat-card:nth-last-child(-n+3) { border-bottom: 1px solid var(--border-light); }
+  .corp-stat-card:nth-last-child(-n+2) { border-bottom: none; }
 }
 
 /* ---------- Mobile / Hamburger Menu ---------- */
@@ -1540,7 +1767,6 @@ p {
   .post-location { margin-left: 24px; margin-right: 24px; }
   .post-media img, .post-media.multi img { height: 260px; }
 
-  /* Founder & Timeline */
   .founder-section { padding: 80px 0 70px; }
   .school-history-section { padding: 70px 0; }
   .founder-bio { padding: 28px 24px; }
@@ -1560,6 +1786,20 @@ p {
   .timeline-content { padding: 24px; }
 
   .director-card { padding: 32px 24px; }
+
+  .footer { padding: 32px 0 16px; }
+  .footer-content { gap: 20px; }
+  .footer-logo h3 { font-size: 1.1rem; }
+
+  .corp-enrollment-section { padding: 60px 0; }
+  .corp-stats-grid { grid-template-columns: 1fr; }
+  .corp-stat-card {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-light) !important;
+    padding: 32px 24px;
+  }
+  .corp-stat-card:last-child { border-bottom: none !important; }
+  .corp-table th, .corp-table td { padding: 14px 16px; font-size: 0.88rem; }
 }
 
 /* ---------- Small Phones ---------- */
@@ -1589,4 +1829,9 @@ p {
   .portrait-frame { width: 220px; height: 280px; }
   .founder-milestones { grid-template-columns: 1fr; }
   .milestone-year { font-size: 1.5rem; }
+
+  .footer-content { gap: 16px; }
+
+  .corp-stat-value { font-size: 2rem; }
+  .corp-stat-number { top: 16px; right: 16px; }
 }
