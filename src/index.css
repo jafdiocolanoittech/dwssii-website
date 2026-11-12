@@ -1291,6 +1291,52 @@ p { margin-bottom: 1.25rem; }
     background: var(--bg-neutral);
   }
 
+  /* Add this to your existing navbar styles */
+
+.brand-text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.brand-text-mobile {
+  display: none; /* Hidden on desktop */
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  letter-spacing: 0.02em;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .brand-text {
+    display: none; /* Hide long text on mobile */
+  }
+  
+  .brand-text-mobile {
+    display: block; /* Show short "DWSSII" on mobile */
+  }
+  
+  .nav-logo {
+    flex: 1; /* Allow logo to take available space */
+  }
+  
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
   /* FIXED MOBILE MENU */
   .nav-menu {
     position: fixed;

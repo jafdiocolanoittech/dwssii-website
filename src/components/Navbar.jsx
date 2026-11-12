@@ -24,10 +24,10 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
     >
       <div className="nav-container">
-        {/* ✨ Logo FIRST, then DWSSII text */}
+        {/* Logo - Shortened on mobile */}
         <motion.div 
           className="nav-logo"
-          whileHover={{ scale: 1.04 }}
+          whileHover={{ scale: 1.02 }}
         >
           <Link to="/" className="brand-link">
             <img 
@@ -35,10 +35,25 @@ export default function Navbar() {
               alt="DWSSII Official Logo" 
               className="brand-logo" 
             />
-            <span className="brand-text">DIVINE WORD SCHOOL OF SEMIRARA ISLAND INC.</span>
+            <div className="brand-text-wrapper">
+              <span className="brand-text">DIVINE WORD SCHOOL OF SEMIRARA ISLAND INC.</span>
+              <span className="brand-text-mobile">DWSSII</span>
+            </div>
           </Link>
         </motion.div>
 
+        {/* Hamburger Button - MOVED BEFORE nav-menu */}
+        <motion.div 
+          className={`hamburger ${isOpen ? 'active' : ''}`}
+          onClick={() => setIsOpen(!isOpen)}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </motion.div>
+
+        {/* Navigation Menu */}
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           {navLinks.map(link => (
             <li key={link.path} className="nav-item">
@@ -52,17 +67,6 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-
-        <motion.div 
-          className={`hamburger ${isOpen ? 'active' : ''}`}
-          onClick={() => setIsOpen(!isOpen)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </motion.div>
       </div>
     </motion.nav>
   );
