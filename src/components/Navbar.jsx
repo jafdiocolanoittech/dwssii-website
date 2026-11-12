@@ -16,20 +16,20 @@ export default function Navbar() {
     { path: '/contact', label: 'Contact' }
   ];
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <motion.nav 
-      className="navbar"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <nav className="navbar">
       <div className="nav-container">
-        {/* Logo - Shortened on mobile */}
-        <motion.div 
-          className="nav-logo"
-          whileHover={{ scale: 1.02 }}
-        >
-          <Link to="/" className="brand-link">
+        {/* Logo and School Name */}
+        <div className="nav-logo">
+          <Link to="/" className="brand-link" onClick={closeMenu}>
             <img 
               src={dwssiiLogo} 
               alt="DWSSII Official Logo" 
@@ -40,18 +40,18 @@ export default function Navbar() {
               <span className="brand-text-mobile">DWSSII</span>
             </div>
           </Link>
-        </motion.div>
+        </div>
 
-        {/* Hamburger Button - MOVED BEFORE nav-menu */}
-        <motion.div 
+        {/* Hamburger Button */}
+        <button 
           className={`hamburger ${isOpen ? 'active' : ''}`}
-          onClick={() => setIsOpen(!isOpen)}
-          whileTap={{ scale: 0.95 }}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
         >
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
-        </motion.div>
+        </button>
 
         {/* Navigation Menu */}
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
@@ -60,7 +60,7 @@ export default function Navbar() {
               <Link 
                 to={link.path} 
                 className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-                onClick={() => setIsOpen(false)}
+                onClick={closeMenu}
               >
                 {link.label}
               </Link>
@@ -68,6 +68,6 @@ export default function Navbar() {
           ))}
         </ul>
       </div>
-    </motion.nav>
+    </nav>
   );
 }

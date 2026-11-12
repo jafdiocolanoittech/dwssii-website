@@ -46,7 +46,7 @@ export default function Activities() {
           transition={{ duration: 0.6 }}
         >
           <h1>Activities and Events</h1>
-          <p className="tagline">Official School Updates</p>
+          <p className="tagline"></p>
         </motion.div>
       </section>
 

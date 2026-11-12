@@ -19,7 +19,6 @@ export default function About() {
         >
           <h1>About DWSSII</h1>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.1rem', marginTop: '16px' }}>
-            Witness to the Word — A Legacy of Divinian Education
           </p>
         </motion.div>
       </section>
