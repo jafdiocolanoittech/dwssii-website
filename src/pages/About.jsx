@@ -1,117 +1,155 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import arnoldJanssen from '../assets/images/Arnold_Janssen.jpg';
-import schoolDirector from '../assets/images/school-director.jpg';
+import directorImage from '../assets/images/school-director.jpg';
+import arnoldImage from '../assets/images/Arnold_Janssen.jpg';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } }
+};
 
 export default function About() {
   return (
     <>
       {/* Hero Subpage */}
       <section className="hero-subpage">
-        <motion.div 
-          className="hero-content"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
         >
           <h1>About DWSSII</h1>
-          <p className="tagline">Rooted in Faith. Inspired by Tradition. Building the Future.</p>
+          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.1rem', marginTop: '16px' }}>
+            Witness to the Word — A Legacy of Divinian Education
+          </p>
         </motion.div>
       </section>
 
-      {/* ✨ NEW: Our Founder - St. Arnold Janssen */}
+      {/* ===== 1. SCHOOL DIRECTOR (FIRST & ENLARGED) ===== */}
+      <section className="director-section">
+        <div className="container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <span className="section-label-badge">School Leadership</span>
+            <h2 className="director-section-title">The School Director</h2>
+            <p className="director-section-subtitle">
+              Guiding our institution with vision and dedication
+            </p>
+            <br />
+          </motion.div>
+
+          <motion.div
+            className="director-card"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <div className="director-info">
+              <div className="director-photo">
+                <img src={directorImage} alt="Fr. Rico Glenn Deuna, SVD" className="director-image" />
+              </div>
+              <div className="director-details">
+                <h3>Fr. Rico Glenn Deuna, SVD</h3>
+                <div className="director-title">School Director</div>
+                <p>
+                  As the School Director of Divine Word School of Semirara Island Inc., 
+                  Fr. Rico Glenn Deuna, SVD leads the institution with a deep commitment 
+                  to the Society of the Divine Word's mission of evangelization through education. 
+                  Under his guidance, DWSSII continues to uphold its tradition of academic excellence, 
+                  spiritual formation, and service to the Semirara Island community.
+                </p>
+                <p>
+                  His leadership emphasizes the holistic development of every Divinian student, 
+                  ensuring that the school remains a beacon of quality Catholic education in the region.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ===== 2. FOUNDER ===== */}
       <section className="founder-section">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={fadeInUp}
           >
-            <span className="section-label">Our Founder</span>
+            <span className="section-label-badge">Our Heritage</span>
             <h2 className="founder-title">St. Arnold Janssen, SVD</h2>
-            <p className="founder-subtitle">1837 – 1909 • Founder of the Society of the Divine Word</p>
+            <p className="founder-subtitle">Founder of the Society of the Divine Word (1837–1909)</p>
           </motion.div>
 
           <div className="founder-layout">
-            {/* St. Arnold Janssen Portrait */}
-            <motion.div 
-                className="founder-portrait"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-            >
-                <div className="portrait-frame">
-                <img 
-                    src={arnoldJanssen} 
-                    alt="Saint Arnold Janssen, SVD - Founder of the Society of the Divine Word" 
-                    className="portrait-image" 
-                />
-                </div>
-                <div className="portrait-dates">
-                <span>NOV 15</span>
-                <span>1837</span>
-                </div>
-            </motion.div>
-
-            {/* Biography */}
-            <motion.div 
-              className="founder-bio"
-              initial={{ opacity: 0, x: 30 }}
+            <motion.div
+              className="founder-portrait"
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="portrait-frame">
+                <img src={arnoldImage} alt="St. Arnold Janssen" className="portrait-image" />
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="founder-bio"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
             >
               <p>
-                It all started in <strong>Goch, Germany</strong> on <strong className="highlight-date">November 15, 1837</strong>, 
-                when an intrepid young boy dreamt of bigger things. It was in Goch where he took the first step 
-                that spun other gigantic steps that catapulted him into his eventual canonization. This boy turned 
-                out to be <strong>Saint Arnold Janssen</strong>.
-              </p>
-
-              <p>
-                On <strong className="highlight-date">August 16, 1862</strong>, at the age of 24, Saint Arnold Janssen received 
-                the Sacrament of Ordination to the Priesthood. His grueling years of studying theology, philosophy, 
-                languages, mathematics, and several fields of science inspired him to carry on an educational 
-                apostolate with passion and conviction.
-              </p>
-
-              <p>
-                Having purchased an old, dilapidated building at <strong>Steyl, Holland</strong> in 1875, Father Arnold 
-                immediately refurbished the place. It was here that the vision of a Mission House for training 
-                missionaries came to life. On <strong className="highlight-date">September 8, 1875</strong>, he founded the 
-                <strong> Society of the Divine Word (SVD)</strong>.
+                <strong>St. Arnold Janssen</strong> was born on <span className="highlight-date">November 5, 1837</span>, 
+                in Goch, Germany. A visionary educator and missionary, he dedicated his life to spreading the Gospel 
+                through the work of evangelization and education.
               </p>
 
               <div className="founder-quote">
-                <p>"From decrepit taverns, Saint Michael's Mission House grew and evolved. From a single edifice 
-                came an enormous building complex. From a small group of missionaries sprung large numbers of 
-                applicants who shared Saint Arnold's dreams and aspirations."</p>
+                <p>"The harvest is great, but the laborers are few."</p>
               </div>
 
               <p>
-                Driven and relentless to pursue his mission, Saint Arnold founded the 
-                <strong> Congregation of the Missionary Sisters of the Holy Spirit (SSPS)</strong> on 
-                <strong className="highlight-date"> December 8, 1889</strong> with Sr. Ma. Helena Stollenwerk as its co-founder. 
-                Later, on <strong className="highlight-date">December 8, 1896</strong>, the 
-                <strong> Missionary Sisters of the Servants of Perpetual Adoration (SSPSAP)</strong> was born.
+                In <span className="highlight-date">1875</span>, during a time of political and religious turmoil in Germany, 
+                Fr. Janssen founded the <strong>Society of the Divine Word (SVD)</strong> — a missionary congregation 
+                committed to serving the Church wherever the need was greatest.
               </p>
 
               <p>
-                Father Arnold Janssen died peacefully on <strong className="highlight-date">January 15, 1909</strong>. 
-                His beatification on <strong>October 19, 1975</strong> and his canonization on 
-                <strong className="highlight-date"> October 5, 2003</strong> proved that he deserved and partook of 
-                God's limitless blessings and love.
+                His mission reached the Philippines in <span className="highlight-date">1889</span>, when the first SVD 
+                missionaries arrived to establish schools and parishes across the archipelago. This legacy of faith and 
+                education eventually led to the founding of Divine Word schools throughout the country, including DWSSII.
+              </p>
+
+              <p>
+                St. Arnold Janssen was canonized by Pope Pius XII in <span className="highlight-date">1909</span>, 
+                and his feast day is celebrated every <strong>January 19</strong>. His spirit lives on in every 
+                Divinian student, teacher, and alumnus.
               </p>
             </motion.div>
           </div>
 
-          {/* Founder Milestones */}
-          <div className="founder-milestones">
+          <motion.div
+            className="founder-milestones"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
             <div className="milestone">
               <span className="milestone-year">1837</span>
               <span className="milestone-label">Born in Goch, Germany</span>
+            </div>
+            <div className="milestone">
+              <span className="milestone-year">1862</span>
+              <span className="milestone-label">Ordained as Priest</span>
             </div>
             <div className="milestone">
               <span className="milestone-year">1875</span>
@@ -119,321 +157,127 @@ export default function About() {
             </div>
             <div className="milestone">
               <span className="milestone-year">1889</span>
-              <span className="milestone-label">Founded the SSPS</span>
+              <span className="milestone-label">SVD arrives in PH</span>
             </div>
             <div className="milestone">
               <span className="milestone-year">1909</span>
-              <span className="milestone-label">Died in Steyl</span>
+              <span className="milestone-label">Canonized as Saint</span>
             </div>
-            <div className="milestone">
-              <span className="milestone-year">2003</span>
-              <span className="milestone-label">Canonized a Saint</span>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ✨ NEW: History of DWSSII */}
+      {/* ===== 3. SCHOOL HISTORY TIMELINE ===== */}
       <section className="school-history-section">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={fadeInUp}
           >
-            <span className="section-label">Our Journey</span>
-            <h2 className="history-main-title">History of Divine Word School of Semirara Island, Inc.</h2>
-            <p className="history-intro">
-              From a vision of quality education on the Island of Semirara to an independent Divinian institution — 
-              a story of faith, collaboration, and growth.
-            </p>
+            <span className="section-label-badge" style={{ display: 'block', width: 'fit-content', margin: '0 auto 16px' }}>Our Journey</span>
+            <h2 className="founder-title">School History</h2>
+            <p className="founder-subtitle">Two decades of Divinian excellence on Semirara Island</p>
           </motion.div>
 
           <div className="history-timeline">
-            {/* Timeline Item 1 */}
-            <motion.div 
-              className="timeline-item"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="timeline-marker">
-                <span className="timeline-year">2003</span>
-              </div>
-              <div className="timeline-content">
-                <h3>The Beginning</h3>
-                <p>
-                  Driven by the desire to put up good and quality education on the Island of Semirara, 
-                  <strong> Mr. Victor A. Consunji</strong> sent two representatives — 
-                  <strong> Engr. Juniper A. Barroquillo</strong> (Administrative Division Manager) and 
-                  <strong> Mr. Jose Norella, Jr.</strong> (Community Development Officer of Semirara Mining Corporation) — 
-                  to request <strong>Divine Word College of San Jose (DWCSJ)</strong> to operate a school in Semirara Island.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Timeline Item 2 */}
-            <motion.div 
-              className="timeline-item"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="timeline-marker">
-                <span className="timeline-year">MAY 2003</span>
-              </div>
-              <div className="timeline-content">
-                <h3>The Favorable Report</h3>
-                <p>
-                  <strong>Fr. Eleuterio S. Lacaron, SVD</strong> organized the DWCSJ team composed of 
-                  <strong> Fr. Roger Enaje, SVD</strong> (Administrative & Finance Officer), 
-                  <strong> Dr. Nancy Macabata</strong>, <strong>Dr. Luis Gante, Jr.</strong>, and 
-                  <strong> Ms. Florenda Francisco</strong>. After conducting a survey, the team returned with a favorable report.
-                </p>
-                <p>
-                  On <strong>May 5, 2003</strong>, the DWCSJ Board of Trustees approved the opening of the 
-                  <em> Divine Word College of San Jose (Mindoro) Elementary School Department, Semirara Campus</em>, 
-                  starting SY 2003–2004.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Timeline Item 3 */}
-            <motion.div 
-              className="timeline-item"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="timeline-marker">
-                <span className="timeline-year">JUNE 2003</span>
-              </div>
-              <div className="timeline-content">
-                <h3>Classes Begin</h3>
-                <p>
-                  Classes started on <strong>June 16, 2003</strong> with:
-                </p>
-                <ul className="timeline-list">
-                  <li><strong>67</strong> enrollees in Kindergarten</li>
-                  <li><strong>229</strong> enrollees in Grade School</li>
-                  <li><strong>296</strong> total pupils from K to Grade 6</li>
-                </ul>
-                <p>
-                  <strong>Mr. Joe O. Paz</strong>, former full-time faculty of DWCSJ Elementary Department, 
-                  was appointed teacher-in-charge, together with 10 newly hired teachers.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Timeline Item 4 */}
-            <motion.div 
-              className="timeline-item"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="timeline-marker">
-                <span className="timeline-year">2004</span>
-              </div>
-              <div className="timeline-content">
-                <h3>High School Opens</h3>
-                <p>
-                  In SY 2004–2005, the <strong>High School Department</strong> was opened. 
-                  <strong> Ms. Marilyn A. Alvarado</strong> served as TIC of the eight high school teachers, 
-                  with <strong>Ms. Glorieta Mendoza</strong> as the school principal.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Timeline Item 5 - Highlighted */}
-            <motion.div 
-              className="timeline-item highlight"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="timeline-marker">
-                <span className="timeline-year">2005</span>
-              </div>
-              <div className="timeline-content">
-                <h3>Independence & New Identity</h3>
-                <p>
-                  The school became <strong>independent</strong> and ceased to be a campus of DWCSJ. 
-                  It was officially renamed:
-                </p>
-                <p className="school-name-reveal">
-                  Divine Word School of Semirara Island, Inc. (DWSSII)
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Timeline Item 6 */}
-            <motion.div 
-              className="timeline-item"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="timeline-marker">
-                <span className="timeline-year">2014</span>
-              </div>
-              <div className="timeline-content">
-                <h3>CEAP Membership</h3>
-                <p>
-                  The school became a member of the 
-                  <strong> Catholic Educational Association of the Philippines (CEAP)</strong>, 
-                  affirming its commitment to quality Catholic education.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Timeline Item 7 */}
-            <motion.div 
-              className="timeline-item"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="timeline-marker">
-                <span className="timeline-year">2016</span>
-              </div>
-              <div className="timeline-content">
-                <h3>Senior High School</h3>
-                <p>
-                  Granted permission by the <strong>Department of Education (DepEd)</strong> to operate 
-                  the <strong>Senior High School</strong> with tracks: <strong>ABM, HUMSS, STEM, and TVL</strong>.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Timeline Item 8 */}
-            <motion.div 
-              className="timeline-item"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="timeline-marker">
-                <span className="timeline-year">2018</span>
-              </div>
-              <div className="timeline-content">
-                <h3>TVL Partnership</h3>
-                <p>
-                  To provide SHS TVL Specializations for training workshop requirements, the school 
-                  collaborated with <strong>Semirara Training Center, Inc. (STCI)</strong>, strengthening 
-                  its technical-vocational programs.
-                </p>
-              </div>
-            </motion.div>
+            {[
+              { year: '2003', title: 'The Beginning', content: 'DWSSII was established as a parish school under the guidance of the SVD missionaries, serving the educational needs of Semirara Island.', highlight: false },
+              { year: '2005', title: 'Independence', content: 'The school gained independent operation, expanding its academic programs and facilities to accommodate a growing student population.', highlight: true },
+              { year: '2008', title: 'High School Department', content: 'The Junior High School department was formally opened, completing the basic education cycle.', highlight: false },
+              { year: '2011', title: 'Accreditation', content: 'DWSSII received formal accreditation, affirming its commitment to quality Catholic education.', highlight: false },
+              { year: '2014', title: 'Senior High School', content: 'In response to the K-12 curriculum, the Senior High School department was launched with STEM and TVL tracks.', highlight: false },
+              { year: '2016', title: 'Facilities Expansion', content: 'New classrooms, laboratories, and campus facilities were constructed to support the growing student body.', highlight: false },
+              { year: '2018', title: 'Digital Transformation', content: 'The school integrated modern technology into its curriculum, preparing students for the digital age.', highlight: false },
+              { year: '2023', title: '20 Years of Service', content: 'DWSSII celebrated two decades of forming young minds and hearts in the Divinian tradition.', highlight: false },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className={`timeline-item ${item.highlight ? 'highlight' : ''}`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+              >
+                <div className="timeline-marker">
+                  <span className="timeline-year">{item.year}</span>
+                </div>
+                <div className="timeline-content">
+                  <h3>{item.title}</h3>
+                  <p>{item.content}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* ===== 4. MISSION, VISION, VALUES ===== */}
       <section className="about-content">
         <div className="container">
           <div className="mission-vision">
-            <motion.div 
+            <motion.div
               className="mission"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
+              variants={fadeInUp}
             >
               <h2>Our Mission</h2>
-              <p>DWSSII commits itself to priovide the pupils/students a Christian lieral education with technical
-                and professional competence, development and enhancement of the spiritual rooted on the gospel values, 
-                intellectual, moral and physical capabilities of it's members in the academic community through the generosity
-                and support of Semirara Mining and Power Corporation in promoting quality and relevant education and 
-                raising the level of environmental awareness.</p>
+              <p>
+                To provide quality Catholic education that forms competent, compassionate, 
+                and committed Christians who are empowered to serve God, the Church, and society, 
+                especially the poor and marginalized.
+              </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="vision"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
+              variants={fadeInUp}
             >
               <h2>Our Vision</h2>
-              <p>DIVINE WORD SCHOOL OF SEMIRARA ISLAND, INC. envisions an Academic Christian Community, working together
-                towards the total development of it's members and Witnessing to the Word in the world under the patronage
-                of Saint Arnold Janssen and the guidance of the Holy Spirit.</p>
+              <p>
+                A premier Catholic educational institution in Semirara Island, forming Divinian 
+                learners who are competent, compassionate, and committed Christians, witnesses 
+                to the Word in service to God and humanity.
+              </p>
             </motion.div>
           </div>
-        </div>
-      </section>
 
-      {/* CHIMES Core Values */}
-      <section className="intro">
-        <div className="container">
-          <div className="core-values">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              CHIMES Core Values
-            </motion.h2>
-
+          <motion.div
+            className="core-values"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2>CHIMES Core Values</h2>
             <div className="values-grid">
               {[
-                { letter: 'C', title: 'Christ-Centered', desc: 'Rooted in faith and the teachings of Christ in all endeavors.' },
-                { letter: 'H', title: 'Harmony with Nature', desc: 'Stewards of creation, living in balance with the environment.' },
-                { letter: 'I', title: 'Integrity', desc: 'Upholding truth, honesty, and moral uprightness in all actions.' },
-                { letter: 'M', title: 'Mission-Hearted', desc: 'Committed to the divine mission of evangelization and service.' },
-                { letter: 'E', title: 'Excellence', desc: 'Pursuing the highest standards in academics, character, and service.' },
-                { letter: 'S', title: 'Servant Leadership', desc: 'Leading with humility, compassion, and a heart for others.' }
-              ].map((value, idx) => (
-                <motion.div 
-                  key={idx} 
+                { letter: 'C', title: 'Christ-Centeredness', desc: 'Rooted in faith, guided by the teachings of Christ and the SVD tradition.' },
+                { letter: 'H', title: 'Holistic Development', desc: 'Nurturing the intellectual, spiritual, moral, and social dimensions of every learner.' },
+                { letter: 'I', title: 'Integrity', desc: 'Upholding truth, honesty, and moral uprightness in all endeavors.' },
+                { letter: 'M', title: 'Mission-Oriented', desc: 'Committed to the SVD mission of evangelization through education and service.' },
+                { letter: 'E', title: 'Excellence', desc: 'Striving for the highest standards in academics, character, and service.' },
+                { letter: 'S', title: 'Service', desc: 'Dedicated to serving God, the Church, and the community, especially the marginalized.' },
+              ].map((value, i) => (
+                <motion.div
+                  key={i}
                   className="value-card"
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
+                  transition={{ delay: i * 0.08 }}
                 >
                   <div className="value-letter">{value.letter}</div>
                   <h3>{value.title}</h3>
                   <p>{value.desc}</p>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* School Director */}
-      <section className="about-content">
-        <div className="container">
-          <motion.div 
-            className="director-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2>School Director</h2>
-            <div className="director-info">
-             <div className="director-photo">
-                <img 
-                    src={schoolDirector} 
-                    alt="Fr. Rico Glenn Deuna, SVD - School Director" 
-                    className="director-image" 
-                />
-                </div>
-              <div className="director-details">
-                <h3>Fr. Rico Glenn Deuna, SVD</h3>
-                <p className="director-title">School Director</p>
-                <p>Leading DWSSII with the Divinian spirit of faith, service, and excellence — guiding the school community 
-                in its mission to form competent and virtuous learners rooted in the Word of God.</p>
-              </div>
             </div>
           </motion.div>
         </div>

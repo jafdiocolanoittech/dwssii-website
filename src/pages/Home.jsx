@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import schoolFront from '../assets/images/school-front.png';
-import EnrollmentStats from '../components/EnrollmentStats'; // <-- NEW IMPORT
+import EnrollmentStats from '../components/EnrollmentStats';
 
 export default function Home() {
   return (
     <>
+      {/* Hero Section */}
       <section 
         className="hero"
         style={{
@@ -29,6 +30,7 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Intro Section */}
       <section className="intro">
         <div className="container">
           <motion.div 
@@ -39,20 +41,14 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2>Welcome to DWSSII</h2>
-            <p>Divine Word School of Semirara Island Inc. is committed to providing quality Catholic education that nurtures the holistic development of our students. Located in the beautiful Semirara Island, we offer a conducive learning environment that fosters academic excellence, character formation, and spiritual growth guided by the Society of the Divine Word (SVD).</p>
-            <div className="cta-buttons">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link to="/programs" className="btn">Our Programs</Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link to="/contact" className="btn btn-outline">Contact Us</Link>
-              </motion.div>
-            </div>
+            <p>
+              Divine Word School of Semirara Island Inc. is committed to providing quality Catholic education that nurtures the holistic development of our students. Located in the beautiful Semirara Island, we offer a conducive learning environment that fosters academic excellence, character formation, and spiritual growth guided by the Society of the Divine Word (SVD).
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* <-- NEW SECTION ADDED HERE --> */}
+      {/* Enrollment Stats Section */}
       <EnrollmentStats />
       
     </>
