@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import schoolFront from '../assets/images/school-front.png';
-import EnrollmentStats from '../components/EnrollmentStats';
+import schoolFront from "../../assets/images/FLAGPOLE.jpg";
+import EnrollmentStats from "../../components/EnrollmentStats";
 
 export default function Home() {
   return (
@@ -23,9 +23,9 @@ export default function Home() {
           transition={{ duration: 0.8 }}
         >
           <h1>Divine Word School of Semirara Island Inc.</h1>
-          <p className="tagline">Witness to the Word</p>
+          <p className="tagline">Vivere Verbum Integritate</p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link to="/about" className="btn">Learn More</Link>
+            <Link to="/news" className="btn">Updates</Link>
           </motion.div>
         </motion.div>
       </section>

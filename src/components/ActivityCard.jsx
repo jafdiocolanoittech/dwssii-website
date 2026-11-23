@@ -1,16 +1,29 @@
 import { motion } from 'framer-motion';
 
 export default function ActivityCard({ post, index }) {
+  // Bulletproof date formatter
   const formatDate = (dateString) => {
     if (!dateString) return "Date to be announced";
-    const date = new Date(`${dateString}T00:00:00`);
-    if (Number.isNaN(date.getTime())) return "Date to be announced";
+    
+    // Try parsing the date directly first
+    const date = new Date(dateString);
+    
+    // If that fails, try the fallback format
+    if (Number.isNaN(date.getTime())) {
+      const fallbackDate = new Date(`${dateString}T00:00:00`);
+      if (Number.isNaN(fallbackDate.getTime())) return "Date to be announced";
+      return new Intl.DateTimeFormat("en-PH", { year: "numeric", month: "long", day: "numeric" }).format(fallbackDate);
+    }
+    
     return new Intl.DateTimeFormat("en-PH", { 
       year: "numeric", 
       month: "long", 
       day: "numeric" 
     }).format(date);
   };
+
+  // Get the first letter of the author's name for the avatar
+  const authorInitial = (post.author || 'A').charAt(0).toUpperCase();
 
   return (
     <motion.article
@@ -26,7 +39,7 @@ export default function ActivityCard({ post, index }) {
           className="post-avatar"
           whileHover={{ rotate: 5, scale: 1.05 }}
         >
-          DW
+          {authorInitial}
         </motion.div>
         <div className="post-meta">
           <h3>{post.title}</h3>
@@ -42,17 +55,18 @@ export default function ActivityCard({ post, index }) {
 
       <div className="post-body">
         <p className="post-summary">{post.summary}</p>
-        {post.body.map((paragraph, idx) => (
+        {post.body && post.body.map((paragraph, idx) => (
           <p key={idx}>{paragraph}</p>
         ))}
       </div>
 
       {post.location && (
-        <div className="post-location">
+        <div className="post-location" style={{ padding: '0 28px 16px', color: 'var(--text-body)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <span>📍</span> {post.location}
         </div>
       )}
 
+      {/* Updated to handle the images array correctly */}
       {post.images && post.images.length > 0 && (
         <div className={`post-media ${post.images.length > 1 ? 'multi' : ''}`}>
           {post.images.map((image, idx) => (
@@ -69,10 +83,11 @@ export default function ActivityCard({ post, index }) {
       )}
 
       {post.tags && post.tags.length > 0 && (
-        <div className="post-tags">
+        <div className="post-tags" style={{ padding: '0 28px 24px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
           {post.tags.map((tag, idx) => (
             <motion.span 
               key={idx}
+              className="category-badge"
               whileHover={{ scale: 1.05, y: -2 }}
             >
               #{tag}
