@@ -9,36 +9,20 @@ const fadeInUp = {
 
 const logoMeanings = [
   {
-    title: 'The Open Bible',
-    text: 'At the center of our emblem lies the Open Bible, symbolizing the Divine Word — the foundation of our institution. It represents our commitment to truth, wisdom, and the proclamation of the Gospel as the guiding light of education.'
+    title: 'The Cross on the Mountain',
+    text: 'The cross on the mountain is the symbol of the Catholic faith, the propagation of which the DWSSII holds as her divine mission. The school stands like a sentinel on the mountain, guarding the seed of the Catholic traditions where she stands. In all her undertakings, she shines with the militant spirit of the cross and the Crucified.'
   },
   {
-    title: 'The Cross',
-    text: 'Rising above the Bible is the Cross, a universal symbol of Christ\'s sacrifice and love. It reminds every Divinian that our pursuit of knowledge is inseparable from our faith, and that education must lead us closer to God.'
+    title: 'The Eagle',
+    text: 'The eagle is the symbol of St. John, the evangelist, whose gospel begins with the words, “In the beginning was the Word…” (1.1), the passage from which the DWSSII derives her name. The eagle also stands for true knowledge and wisdom that the school imparts to all who come to her fountains of learning.'
   },
   {
-    title: 'The Torch of Knowledge',
-    text: 'The torch signifies the light of learning that dispels the darkness of ignorance. It embodies our mission to illuminate minds, inspire critical thinking, and empower students to become agents of positive change in society.'
+    title: 'The SVD Logo',
+    text: 'The SVD logo is to recognize the SVD spirit that nurtures the school. Being faithful disciples of the Lord, the SVDs take on the mission entrusted to them – the spreading of the Good News to the ends of the earth and bearing witness to the Word through education.'
   },
   {
-    title: 'The Waves of Semirara',
-    text: 'Encircling the central symbols are stylized waves, representing Semirara Island — our home and the community we serve. They remind us of our roots and our responsibility to uplift the island and its people through quality education.'
-  },
-  {
-    title: 'The Colors: Green and Gold',
-    text: (
-      <>
-        <strong>Green</strong> symbolizes growth, life, and the flourishing of young minds under our care. <strong>Gold</strong> represents excellence, virtue, and the precious value of every Divinian's potential. Together, they reflect our vision of nurturing competent, compassionate, and Christ-centered leaders.
-      </>
-    )
-  },
-  {
-    title: 'The School Name',
-    text: (
-      <>
-        Encircling the emblem is the full name of the institution — <em>Divine Word School of Semirara Island, Inc.</em> — a proud declaration of our identity and our unwavering dedication to the mission of the Society of the Divine Word (SVD).
-      </>
-    )
+    title: 'The Map of Semirara Island',
+    text: 'The map of Semirara Island symbolizes the fertile soil in which the seed of the Catholic faith has been planted and nourished. It also represents the richness and the opportunities that await its settlers, particularly the youth which the DWSSII devotedly serves.'
   }
 ];
 
@@ -107,7 +91,7 @@ export default function Logo() {
               style={{ 
                 margin: '0 auto', 
                 boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
-                border: '1px solid rgba(0,0,0,0.15)', /* Subtle thin black border */
+                border: '1px solid rgba(0,0,0,0.15)',
                 outline: 'none'
               }}
             >
@@ -135,7 +119,7 @@ export default function Logo() {
             <h2 className="als-title" style={{ marginBottom: '16px' }}></h2>
             
             <p className="als-text" style={{ marginBottom: '32px' }}>
-              The official logo of the Divine Word School of Semirara Island, Inc. is a visual testament to our mission, values, and commitment to holistic education rooted in the Christian faith.
+              The official seal of the Divine Word School of Semirara Island, Inc. features four distinct figures that embody our mission, values, and commitment to holistic education rooted in the Christian faith.
             </p>
 
             {/* Clean, Modern Paragraph Blocks */}
@@ -168,7 +152,7 @@ export default function Logo() {
             {/* Closing Statement */}
             <div style={{ marginTop: '40px', paddingTop: '24px', borderTop: '1px solid var(--border-light)' }}>
               <p className="als-text" style={{ margin: 0, fontStyle: 'italic', fontWeight: '600', color: 'var(--text-dark)', lineHeight: '1.7' }}>
-                Every element of our logo speaks of faith, learning, and service — the three pillars that define every Divinian.
+                The education that the school fosters hopes to kindle inspiration and courage among the students to dispel religious ignorance to make them true witnesses of the resurrected Christ so that they become paragons of bearing witness to the Word.
               </p>
             </div>
           </motion.div>

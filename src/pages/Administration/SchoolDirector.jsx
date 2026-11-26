@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import directorImage from '../../assets/images/school-director1.png';
+import sdBanner from '../../assets/navbar/sd.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 24 },
@@ -8,72 +8,23 @@ const fadeInUp = {
 };
 
 export default function SchoolDirector() {
-  const heroRef = useRef(null);
-
-  // Scroll-linked shrink: writes a 0 -> 1 progress value (--p) straight to the
-  // hero's CSS. No React state, no re-renders, no class toggling, so no flicker.
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-
-    let ticking = false;
-
-    const update = () => {
-      const shrink = parseFloat(getComputedStyle(hero).getPropertyValue('--hero-shrink')) || 180;
-      const p = Math.min(Math.max(window.scrollY / shrink, 0), 1);
-      hero.style.setProperty('--p', p.toFixed(3));
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(update);
-        ticking = true;
-      }
-    };
-
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', update);
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', update);
-    };
-  }, []);
-
   return (
     <main className="subpage">
-      {/* Hero: shrinks as you scroll; the title stays pinned under the navbar */}
-      <section ref={heroRef} className="hero-subpage">
-        <div className="container">
-          <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-            <h1>Administration</h1>
-            <p className="tagline">Office of the School Director</p>
-          </motion.div>
-        </div>
+      {/* Dedicated hero — pure image, no text */}
+      <section className="sd-hero">
+        <img
+          src={sdBanner}
+          alt="Office of the School Director banner"
+          className="sd-hero__img"
+        />
+        <div className="sd-hero__overlay" />
       </section>
 
       {/* ===== DIRECTOR PROFILE SECTION ===== */}
-      <section className="director-section" aria-labelledby="director-heading">
+      <section className="director-section" aria-labelledby="director-heading" style={{ paddingTop: '1.5rem' }}>
         <div className="container">
-          <motion.header
-            className="director-head"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <span className="section-label-badge"></span>
-            <h2 id="director-heading" className="founder-title" style={{ textAlign: 'center', marginTop: '16px' }}>
-              School Director
-            </h2>
-            <p className="founder-subtitle" style={{ textAlign: 'center' }}>
-              Guiding DWSSII with faith, expertise, and dedicated service.
-            </p>
-          </motion.header>
-
-          <div className="director-layout">
+          
+          <div className="director-layout" style={{ gap: '2rem' }}>
             {/* LEFT: Portrait Image */}
             <motion.div
               className="director-image-col"
@@ -100,8 +51,8 @@ export default function SchoolDirector() {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <div className="profile-section">
-                <h3 className="profile-title">Affiliations</h3>
+              <div className="profile-section" style={{ marginBottom: '1.25rem' }}>
+                <h3 className="profile-title" style={{ marginBottom: '0.5rem' }}>Affiliations</h3>
                 <ul className="profile-list">
                   <li>
                     <strong>Society of the Divine Word (SVD)</strong>
@@ -116,8 +67,8 @@ export default function SchoolDirector() {
                 </ul>
               </div>
 
-              <div className="profile-section">
-                <h3 className="profile-title">Educational Attainment</h3>
+              <div className="profile-section" style={{ marginBottom: '1.25rem' }}>
+                <h3 className="profile-title" style={{ marginBottom: '0.5rem' }}>Educational Attainment</h3>
                 <ul className="profile-list">
                   <li>
                     <strong>University of the Philippines Manila (UP, Manila)</strong> (2010)
@@ -134,8 +85,8 @@ export default function SchoolDirector() {
                 </ul>
               </div>
 
-              <div className="profile-section">
-                <h3 className="profile-title">Published Works / Awards</h3>
+              <div className="profile-section" style={{ marginBottom: '1.25rem' }}>
+                <h3 className="profile-title" style={{ marginBottom: '0.5rem' }}>Published Works / Awards</h3>
                 <ul className="profile-list">
                   <li>
                     <strong>Divine Word Seminary Tagaytay (DWST)</strong> (2008)
@@ -148,15 +99,15 @@ export default function SchoolDirector() {
                 </ul>
               </div>
 
-              <div className="profile-section">
-                <h3 className="profile-title">Years of Service at DWSSII</h3>
+              <div className="profile-section" style={{ marginBottom: '1.25rem' }}>
+                <h3 className="profile-title" style={{ marginBottom: '0.5rem' }}>Years of Service at DWSSII</h3>
                 <p className="profile-text">
                   4 months (July 1, 2026 – Present)
                 </p>
               </div>
 
-              <div className="profile-section">
-                <h3 className="profile-title">Work Experiences</h3>
+              <div className="profile-section" style={{ marginBottom: '0' }}>
+                <h3 className="profile-title" style={{ marginBottom: '0.5rem' }}>Work Experiences</h3>
                 <ul className="profile-list work-list">
                   <li>CEO at Holy Name University Medical Center in Tagbilaran City, Bohol</li>
                   <li>Vice President for Administration at Divine Word College of Legazpi</li>

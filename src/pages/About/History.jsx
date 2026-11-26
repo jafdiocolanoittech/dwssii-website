@@ -1,5 +1,7 @@
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+
+// NOTE: renamed file to history.png (no spaces / parentheses)
+import historyBanner from '../../assets/navbar/history.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 24 },
@@ -18,56 +20,16 @@ const TIMELINE = [
 ];
 
 export default function History() {
-  const heroRef = useRef(null);
-
-  // Scroll-linked shrink: writes a 0 -> 1 progress value (--p) straight to the
-  // hero's CSS. No React state, no re-renders, no class toggling, so no flicker.
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-
-    let ticking = false;
-
-    const update = () => {
-      const shrink = parseFloat(getComputedStyle(hero).getPropertyValue('--hero-shrink')) || 180;
-      const p = Math.min(Math.max(window.scrollY / shrink, 0), 1);
-      hero.style.setProperty('--p', p.toFixed(3));
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(update);
-        ticking = true;
-      }
-    };
-
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', update);
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', update);
-    };
-  }, []);
-
   return (
     <main className="subpage">
-      {/* Hero: shrinks as you scroll; the title stays pinned under the navbar */}
-      <section ref={heroRef} className="hero-subpage">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-          >
-            <h1>History of DWSSII</h1>
-            <p className="tagline">
-              Two decades of Divinian excellence and faith on Semirara Island
-            </p>
-          </motion.div>
-        </div>
+      {/* Dedicated hero — pure image, fixed size, no shrink effect */}
+      <section className="history-hero">
+        <img
+          src={historyBanner}
+          alt="Divine Word School of Semirara, Inc. campus banner"
+          className="history-hero__img"
+        />
+        <div className="history-hero__overlay" />
       </section>
 
       {/* ===== SCHOOL HISTORY TIMELINE ===== */}
@@ -79,9 +41,15 @@ export default function History() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <span className="section-label-badge" style={{ display: 'block', width: 'fit-content', margin: '0 auto 16px' }}>Our Journey</span>
-            <h2 className="founder-title" style={{ textAlign: 'center', marginTop: '16px' }}></h2>
-            <p className="founder-subtitle" style={{ textAlign: 'center' }}>Two decades of Divinian excellence on Semirara Island</p>
+            <span
+              className="section-label-badge"
+              style={{ display: 'block', width: 'fit-content', margin: '0 auto 16px' }}
+            >
+              Our Journey
+            </span>
+            <p className="founder-subtitle" style={{ textAlign: 'center' }}>
+              Two decades of Divinian excellence on Semirara Island
+            </p>
           </motion.div>
 
           <div className="history-timeline">

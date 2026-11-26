@@ -21,6 +21,14 @@ const IT_POLICIES = [
   { title: 'Data Privacy & Security', desc: 'Our commitment to protecting personal information in compliance with the Data Privacy Act of 2012.' },
 ];
 
+// One icon per service, in the same order as IT_SERVICES
+const IT_ICONS = [
+  <path key="lms" d="M2 4h7a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2zM22 4h-7a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z" />,
+  <path key="portal" d="M3 5h18v14H3zM9 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6 16c.5-2 5.5-2 6 0M15 10h3M15 14h3" />,
+  <path key="lab" d="M3 4h18v12H3zM8 20h8M12 16v4" />,
+  <path key="help" d="M4 14v-2a8 8 0 0 1 16 0v2M4 13h3v6H4zM17 13h3v6h-3zM18 19c0 2-3 2-5 2" />
+];
+
 export default function ITServices() {
   const heroRef = useRef(null);
 
@@ -51,7 +59,7 @@ export default function ITServices() {
   }, []);
 
   return (
-    <main className="subpage">
+    <main className="subpage it-page">
       {/* Hero Subpage */}
       <section ref={heroRef} className="hero-subpage">
         <div className="container">
@@ -105,8 +113,8 @@ export default function ITServices() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-           
             
+
             <p className="it-office-text">
               The <strong>Information Technology (IT) Office of Divine Word School of Semirara Island, Inc. (DWSSII)</strong> serves as the backbone of the institution's digital infrastructure. Guided by the SVD mission, we are dedicated to integrating modern technology into the educational experience, ensuring that both faculty and students have access to reliable, secure, and innovative digital tools.
             </p>
@@ -140,38 +148,42 @@ export default function ITServices() {
       </section>
 
       {/* ===== IT SERVICES GRID ===== */}
-      <section className="intro" style={{ background: 'var(--bg-neutral)', padding: '64px 0' }}>
+      <section className="it-services-section">
         <div className="container">
           <motion.header
+            className="it-section-header"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            style={{ textAlign: 'center', marginBottom: '48px' }}
           >
-            <span className="section-label-badge">Administrative Module</span>
-            <h2 className="founder-title" style={{ marginTop: '16px' }}>Digital Services & Facilities</h2>
-            <p className="founder-subtitle">Supporting the DWSSII community with reliable, modern technology.</p>
+            <span className="it-chip">Administrative Module</span>
+            <h2 className="it-section-title">Digital Services & Facilities</h2>
+            <p className="it-section-subtitle">Supporting the DWSSII community with reliable, modern technology.</p>
           </motion.header>
 
-          <div className="values-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+          <div className="it-services-grid">
             {IT_SERVICES.map((service, index) => (
               <motion.div
-                key={index}
-                className="value-card"
-                initial="hidden"
-                whileInView="visible"
+                key={service.num}
+                className="it-service-item"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                variants={fadeInUp}
-                transition={{ delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="value-letter" style={{ fontSize: '1.5rem', border: 'none', background: 'var(--light-green)', color: 'var(--primary-green-dark)', fontWeight: '700' }}>
-                  {service.num}
-                </div>
-                <h3 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>{service.title}</h3>
-                <p style={{ fontSize: '0.9rem', lineHeight: '1.7', color: 'var(--text-body)', marginBottom: 0 }}>
-                  {service.desc}
-                </p>
+                <article className="it-service-card">
+                  <div className="it-service-top">
+                    <span className="it-service-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        {IT_ICONS[index]}
+                      </svg>
+                    </span>
+                    <span className="it-service-num">{service.num}</span>
+                  </div>
+                  <h3 className="it-service-title">{service.title}</h3>
+                  <p className="it-service-desc">{service.desc}</p>
+                </article>
               </motion.div>
             ))}
           </div>
@@ -179,44 +191,35 @@ export default function ITServices() {
       </section>
 
       {/* ===== IT POLICIES & GOVERNANCE ===== */}
-      <section className="founder-section">
+      <section className="it-policy-section">
         <div className="container">
-          <motion.div
+          <motion.header
+            className="it-section-header"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <span className="section-label-badge">Governance</span>
-            <h2 className="founder-title" style={{ marginTop: '16px', textAlign: 'center' }}>IT Policies & Guidelines</h2>
-            <p className="founder-subtitle" style={{ textAlign: 'center', marginBottom: '48px' }}>
-              Ensuring a safe, secure, and productive digital environment for all Divinians.
-            </p>
-          </motion.div>
+            <span className="it-chip">Governance</span>
+            <h2 className="it-section-title">IT Policies & Guidelines</h2>
+            <p className="it-section-subtitle">Ensuring a safe, secure, and productive digital environment for all Divinians.</p>
+          </motion.header>
 
-          <div className="mission-vision" style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div className="it-policy-grid">
             {IT_POLICIES.map((policy, index) => (
               <motion.div
-                key={index}
-                className="mission"
+                key={policy.title}
+                className="it-policy-card"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
                 transition={{ delay: index * 0.15 }}
               >
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '16px', color: 'var(--primary-green-dark)' }}>
-                  {policy.title}
-                </h3>
-                <p style={{ fontSize: '0.9rem', lineHeight: '1.8', marginBottom: 0 }}>
-                  {policy.desc}
-                </p>
-                <Link 
-                  to="#" 
-                  className="btn btn-outline" 
-                  style={{ marginTop: '24px', color: 'var(--primary-green-dark)', borderColor: 'var(--primary-green-dark)' }}
-                >
-                  Read Full Policy
+                <h3 className="it-policy-title">{policy.title}</h3>
+                <p className="it-policy-desc">{policy.desc}</p>
+                <Link to="#" className="it-policy-link">
+                  Read Full Policy <span aria-hidden="true">→</span>
                 </Link>
               </motion.div>
             ))}

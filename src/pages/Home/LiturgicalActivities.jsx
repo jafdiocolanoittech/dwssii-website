@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Recollection Images
-import reco1 from '../../assets/recollection/reco1.jpeg';
+/* import reco1 from '../../assets/recollection/reco1.jpeg';
 import reco2 from '../../assets/recollection/reco2.jpeg';
-import reco3 from '../../assets/recollection/reco3.jpeg';
+import reco3 from '../../assets/recollection/reco3.jpeg';*/
 
 // First Friday Mass Images
 import ff1 from '../../assets/firstfridaymass/first1.jpeg';
@@ -32,7 +32,7 @@ const fadeInRight = {
    ACTIVITIES DATA
    ========================================= */
 const activities = [
-  {
+  /*{
     id: 1,
     date: 'November 16, 2026',
     location: 'Our Lady of Guadalupe Parish',
@@ -52,7 +52,7 @@ const activities = [
       { src: reco2, caption: 'A moment of prayer and reflection' },
       { src: reco3, caption: 'DWSSII personnel in spiritual renewal' }
     ]
-  },
+  },*/
   {
     id: 2,
     date: 'November 2026',

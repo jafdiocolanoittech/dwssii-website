@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import orgChartImage from '../../assets/images/org-chart.jpeg';
+import orgChartImage from '../../assets/images/org-chart.jpg';
 
 // Note: Styles for this page live in the global index.css (.org-* section),
 // so no local CSS import is needed here.

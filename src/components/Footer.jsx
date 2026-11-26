@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <motion.footer 
       className="footer"
@@ -12,33 +14,44 @@ export default function Footer() {
     >
       <div className="container">
         <div className="footer-content">
+          
+          {/* Column 1: Identity & Motto */}
           <div className="footer-logo">
             <h3>DWSSII</h3>
-            <p>Excellence with Values</p>
+            <p className="footer-motto">Vivere Verbum Integritate</p>
+            <p className="footer-hashtags">
+              
+            </p>
           </div>
 
+          {/* Column 2: Streamlined Quick Links */}
           <div className="footer-links">
             <h4>Quick Links</h4>
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/programs">Programs</Link></li>
-              <li><Link to="/campus">Campus Life</Link></li>
-              <li><Link to="/activities">Activities</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/programs">Academic Programs</Link></li>
+              <li><Link to="/activities">Institutional Activities</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
 
+          {/* Column 3: Compact Contact Info */}
           <div className="footer-contact">
-            <h4>Contact Us</h4>
+            <h4>Get in Touch</h4>
             <p>Semirara Island, Caluya, Antique, Philippines</p>
-            <p>Email: dwssiiittech@gmail.com</p>
-            <p>Phone: 0999-999-9999</p>
+            <p>
+              <a href="mailto:dwssiiittech@gmail.com" className="footer-email">
+                dwssiiittech@gmail.com
+              </a>
+            </p>
           </div>
+
         </div>
 
+        {/* Bottom Bar */}
         <div className="footer-bottom">
-          <p>&copy; 2026 Divine Word School of Semirara Island Inc. All Rights Reserved.</p>
+          <p>&copy; {currentYear} Divine Word School of Semirara Island, Inc. All Rights Reserved.</p>
         </div>
       </div>
     </motion.footer>

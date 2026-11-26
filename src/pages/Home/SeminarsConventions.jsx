@@ -52,7 +52,6 @@ export default function SeminarsConventions() {
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
-
     let ticking = false;
 
     const update = () => {
